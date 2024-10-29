@@ -22,6 +22,12 @@ namespace Geometry {
 
         Vector2D& operator-=(const Vector2D& rhs);
         friend Vector2D operator-(const Vector2D& lhs, const Vector2D& rhs);
+
+        friend Point2D operator+(const Point2D& lhs, const Vector2D& rhs);
+        friend Point2D operator+(const Vector2D& lhs, const Point2D& rhs);
+
+        friend Point2D operator-(const Point2D& lhs, const Vector2D& rhs);
+        friend Point2D operator-(const Vector2D& lhs, const Point2D& rhs);
     };
 }
 

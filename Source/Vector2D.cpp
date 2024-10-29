@@ -31,9 +31,7 @@ namespace Geometry {
     }
 
     Vector2D operator*(const Vector2D &lhs, double rhs) {
-        Vector2D result(lhs);
-        result *= rhs;
-        return result;
+        return rhs * lhs;
     }
 
     Vector2D& Vector2D::operator/=(double rhs) {
@@ -72,4 +70,25 @@ namespace Geometry {
         return result;
     }
 
+    Point2D operator+(const Point2D& lhs, const Vector2D& rhs) {
+        Point2D result(lhs);
+        result.x += rhs.x;
+        result.y += rhs.y;
+        return result;
+    }
+
+    Point2D operator+(const Vector2D& lhs, const Point2D& rhs) {
+        return rhs + lhs;
+    }
+
+    Point2D operator-(const Point2D& lhs, const Vector2D& rhs) {
+        Point2D result(lhs);
+        result.x -= rhs.x;
+        result.y -= rhs.y;
+        return result;
+    }
+
+    Point2D operator-(const Vector2D& lhs, const Point2D& rhs) {
+        return rhs - lhs;
+    }
 }
