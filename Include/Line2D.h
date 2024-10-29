@@ -15,7 +15,7 @@ namespace Geometry {
         [[nodiscard]] double GetDistanceToPoint(const Point2D& point) const;
         [[nodiscard]] Point2D ReflectPoint(const Point2D& point) const;
 
-        [[nodiscard]] bool operator==(const Line2D& line) const;
+        bool operator==(const Line2D& line) const;
 
     private:
         [[nodiscard]] double CalculateA() const;
