@@ -12,4 +12,9 @@ namespace Geometry {
         os << rhs.X << " " << rhs.Y;
         return os;
     }
+
+    std::istream& operator>>(std::istream& is, Point2D& rhs) {
+        is >> rhs.X >> rhs.Y;
+        return is;
+    }
 }
