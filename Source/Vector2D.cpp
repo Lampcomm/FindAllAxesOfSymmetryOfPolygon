@@ -3,13 +3,13 @@
 
 namespace Geometry {
     double Vector2D::GetSize() const {
-        return std::sqrt(x * x + y * y);
+        return std::sqrt(X * X + Y * Y);
     }
 
     void Vector2D::Normalize() {
         const auto size = GetSize();
-        x /= size;
-        y /= size;
+        X /= size;
+        Y /= size;
     }
 
     Vector2D Vector2D::GetNormal() const {
@@ -19,8 +19,8 @@ namespace Geometry {
     }
 
     Vector2D& Vector2D::operator*=(double rhs) {
-        x *= rhs;
-        y *= rhs;
+        X *= rhs;
+        Y *= rhs;
         return *this;
     }
 
@@ -35,8 +35,8 @@ namespace Geometry {
     }
 
     Vector2D& Vector2D::operator/=(double rhs) {
-        x /= rhs;
-        y /= rhs;
+        X /= rhs;
+        Y /= rhs;
         return *this;
     }
 
@@ -47,8 +47,8 @@ namespace Geometry {
     }
 
     Vector2D& Vector2D::operator+=(const Vector2D &rhs) {
-        x += rhs.x;
-        y += rhs.y;
+        X += rhs.X;
+        Y += rhs.Y;
         return *this;
     }
 
@@ -59,8 +59,8 @@ namespace Geometry {
     }
 
     Vector2D &Vector2D::operator-=(const Vector2D &rhs) {
-        x -= rhs.x;
-        y -= rhs.y;
+        X -= rhs.X;
+        Y -= rhs.Y;
         return *this;
     }
 
@@ -72,8 +72,8 @@ namespace Geometry {
 
     Point2D operator+(const Point2D& lhs, const Vector2D& rhs) {
         Point2D result(lhs);
-        result.x += rhs.x;
-        result.y += rhs.y;
+        result.X += rhs.X;
+        result.Y += rhs.Y;
         return result;
     }
 
@@ -83,8 +83,8 @@ namespace Geometry {
 
     Point2D operator-(const Point2D& lhs, const Vector2D& rhs) {
         Point2D result(lhs);
-        result.x -= rhs.x;
-        result.y -= rhs.y;
+        result.X -= rhs.X;
+        result.Y -= rhs.Y;
         return result;
     }
 

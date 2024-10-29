@@ -4,8 +4,8 @@
 
 namespace Geometry {
     Point2D Line2D::GetMidPoint() const {
-        const double midX = (P1.x + P2.x) / 2.;
-        const double midY = (P1.y + P2.y) / 2.;
+        const double midX = (P1.X + P2.X) / 2.;
+        const double midY = (P1.Y + P2.Y) / 2.;
         return {midX, midY};
     }
 
@@ -20,7 +20,7 @@ namespace Geometry {
         const double b = CalculateB();
         const double c = CalculateC();
 
-        return (a * point.x + b * point.y + c) / std::sqrt(a * a + b * b);
+        return (a * point.X + b * point.Y + c) / std::sqrt(a * a + b * b);
     }
 
     Point2D Line2D::ReflectPoint(const Point2D &point) const {
@@ -33,15 +33,15 @@ namespace Geometry {
     }
 
     double Line2D::CalculateA() const {
-        return P2.y - P1.y;
+        return P2.Y - P1.Y;
     }
 
     double Line2D::CalculateB() const {
-        return P1.x - P2.x;
+        return P1.X - P2.X;
     }
 
     double Line2D::CalculateC() const {
-        return P1.y * P2.x - P1.x * P2.y;
+        return P1.Y * P2.X - P1.X * P2.Y;
     }
 
 }
