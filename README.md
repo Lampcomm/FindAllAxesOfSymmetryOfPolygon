@@ -6,7 +6,7 @@ This program is a console application that allows you to find all the symmetry a
 
 ## Requirements
 
-- CMake 3.10+
+- CMake 3.29+
 - C++20
 
 ## Input File Format
