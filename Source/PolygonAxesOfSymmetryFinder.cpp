@@ -2,7 +2,6 @@
 #include <Line2D.h>
 #include <Polygon2D.h>
 #include <algorithm>
-#include <memory>
 
 namespace {
     using TVerticesListSize = Geometry::Polygon2D::TVertexIndex;
@@ -11,10 +10,10 @@ namespace {
 namespace PolygonUtils {
     PolygonAxesOfSymmetryFinder::TAxesOfSymmetryList
     PolygonAxesOfSymmetryFinder::FindAxesOfSymmetry(const Geometry::Polygon2D &polygon) {
-        std::unique_ptr<PolygonAxesOfSymmetryFinder> finder(new PolygonAxesOfSymmetryFinder(polygon));
-        finder->FindAxesOfSymmetryImpl();
+        PolygonAxesOfSymmetryFinder finder(polygon);
+        finder.FindAxesOfSymmetryImpl();
 
-        return finder->m_axesOfSymmetryList;
+        return finder.m_axesOfSymmetryList;
     }
 
     PolygonAxesOfSymmetryFinder::PolygonAxesOfSymmetryFinder(const Geometry::Polygon2D &polygon)
@@ -30,9 +29,10 @@ namespace PolygonUtils {
     }
 
     void PolygonAxesOfSymmetryFinder::GeneratePossibleAxesOfSymmetry() {
-        return  m_polygon->Vertices.size() % 2 == 0 ?
-                GeneratePossibleAxesOfSymmetryForEvenNumOfVerticesPolygon() :
-                GeneratePossibleAxesOfSymmetryForOddNumOfVerticesPolygon();
+        if (m_polygon->Vertices.size() % 2 == 0)
+            GeneratePossibleAxesOfSymmetryForEvenNumOfVerticesPolygon();
+        else
+            GeneratePossibleAxesOfSymmetryForOddNumOfVerticesPolygon();
     }
 
     void PolygonAxesOfSymmetryFinder::GeneratePossibleAxesOfSymmetryForEvenNumOfVerticesPolygon() {
