@@ -1,7 +1,7 @@
 #include <iostream>
 #include <Line2D.h>
 #include <memory>
-#include <PolygonAxesOfSymmetryFinder.h>
+#include <Polygon2DAxesOfSymmetryFinder.h>
 #include <Point2D.h>
 #include <Polygon2DLoaderFromTxt.h>
 #include <Polygon2D.h>
@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     const std::unique_ptr<PolygonUtils::Polygon2DLoader> loader(new PolygonUtils::Polygon2DLoaderFromTxt);
 
     const auto polygon = loader->LoadPolygon(argv[1]);
-    const auto axesOfSymmetry = PolygonUtils::PolygonAxesOfSymmetryFinder::FindAxesOfSymmetry(polygon);
+    const auto axesOfSymmetry = PolygonUtils::Polygon2DAxesOfSymmetryFinder::FindAxesOfSymmetry(polygon);
 
     if (axesOfSymmetry.empty())
         std::cout << "non-symmetric\n";

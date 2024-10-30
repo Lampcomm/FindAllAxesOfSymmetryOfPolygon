@@ -15,7 +15,7 @@ namespace Geometry {
         return normal;
     }
 
-    double Line2D::GetDistanceToPoint(const Point2D &point) const {
+    double Line2D::CalculateDistanceToPoint(const Point2D &point) const {
         const double a = CalculateA();
         const double b = CalculateB();
         const double c = CalculateC();
@@ -24,12 +24,12 @@ namespace Geometry {
     }
 
     Point2D Line2D::ReflectPoint(const Point2D &point) const {
-        return point - 2 * GetDistanceToPoint(point) * GetNormal();
+        return point - 2 * CalculateDistanceToPoint(point) * GetNormal();
     }
 
     bool Line2D::operator==(const Line2D &line) const {
-        return  GetDistanceToPoint(line.P1) < GlobalConstants::Epsilon &&
-                GetDistanceToPoint(line.P2) < GlobalConstants::Epsilon;
+        return  CalculateDistanceToPoint(line.P1) < GlobalConstants::Epsilon &&
+                CalculateDistanceToPoint(line.P2) < GlobalConstants::Epsilon;
     }
 
     double Line2D::CalculateA() const {

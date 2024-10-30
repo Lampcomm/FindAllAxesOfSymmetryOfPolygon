@@ -4,10 +4,27 @@
 #include <Point2D.h>
 
 namespace Geometry {
+    /**
+    * @class Vector2D
+    * @brief Represents vector in 2D space
+    */
     class Vector2D : public Point2D {
     public:
+        /**
+        * @brief Calculates the length of a vector
+        * @return Vector length
+        */
         [[nodiscard]] double GetSize() const;
+
+        /**
+        * @brief Normalizes the vector
+        */
         void Normalize();
+
+        /**
+        * @brief Computes a normalized vector
+        * @return Normalized vector
+        */
         [[nodiscard]] Vector2D GetNormal() const;
 
         Vector2D& operator*=(double rhs);
